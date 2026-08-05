@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleksandr Revebtsov - iOS Engineer</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --accent-color: #007aff;
+            --border-color: #e9ecef;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; color: #1c1c1e; }
+        .subtitle { font-size: 1.2rem; color: var(--accent-color); font-weight: 600; }
+        .contact-links a { color: var(--accent-color); text-decoration: none; margin-right: 15px; }
+        .section-title { text-transform: uppercase; letter-spacing: 1px; color: #6c757d; font-size: 0.9rem; margin-top: 30px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .job-title { font-weight: bold; }
+        .job-date { float: right; color: #6c757d; font-size: 0.9rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+        .tag { background: #e9ecef; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Oleksandr Revebtsov</h1>
+            <div class="subtitle">iOS Engineer</div>
+            <p>Lviv, Ukraine | <span class="contact-links"><a href="https://linkedin.com">LinkedIn</a> <a href="https://github.com">GitHub</a></span></p>
+        </header>
+
+        <section>
+            <div class="section-title">Professional Summary</div>
+            <p>Results-driven iOS Engineer with over 3 years of experience building, scaling, and maintaining native iOS applications. Proficient in Swift, SwiftUI, Combine, and async/await, with a solid foundation in UIKit, MVVM-C architecture, and CoreData/SQLite persistence.</p>
+        </section>
+
+        <section>
+            <div class="section-title">Core Skills</div>
+            <ul class="tags">
+                <li class="tag">Swift</li>
+                <li class="tag">SwiftUI</li>
+                <li class="tag">UIKit</li>
+                <li class="tag">Combine</li>
+                <li class="tag">async/await</li>
+                <li class="tag">MVVM-C</li>
+                <li class="tag">CoreData</li>
+                <li class="tag">URLSession</li>
+                <li class="tag">StoreKit</li>
+                <li class="tag">CI/CD</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="section-title">Experience</div>
+            
+            <div>
+                <span class="job-date">Aug 2023 – Present</span>
+                <div class="job-title">Software Engineer — GlobalLogic</div>
+                <p><strong>Main Project: Sports Messaging Application</strong></p>
+                <ul>
+                    <li>Built scalable features using SwiftUI and UIKit within an MVVM-C architecture.</li>
+                    <li>Integrated async/await and reactive paradigms for real-time video streaming (Brightcove) and push notifications.</li>
+                    <li>Managed in-app purchases (StoreKit) and Azure CI/CD pipelines for automated App Store releases.</li>
+                </ul>
+            </div>
+
+            <div>
+                <span class="job-date">Jul 2022 – Aug 2023</span>
+                <div class="job-title">Software Engineer — GlobalLogic</div>
+                <p><strong>Project: Video Conferencing Software</strong></p>
+                <ul>
+                    <li>Developed VoIP features and refactored legacy Objective-C codebases into Swift.</li>
+                    <li>Maintained high quality through Unit/UI tests and performance tuning with Xcode Instruments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Education</div>
+            <p><strong>Odesa I.I. Mechnikov National University</strong><br>Applied Mathematics (2002 – 2008)</p>
+        </section>
+    </div>
+</body>
+</html>
