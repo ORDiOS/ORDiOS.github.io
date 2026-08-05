@@ -3,106 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleksandr Revebtsov - iOS Engineer</title>
+    <title>Oleksandr Revebtsov - Experienced iOS Engineer</title>
     <style>
         :root {
-            --bg-color: #f8f9fa;
+            --bg-color: #f4f6f9;
             --card-bg: #ffffff;
-            --text-color: #212529;
-            --accent-color: #007aff;
-            --border-color: #e9ecef;
+            --text-main: #1d1d1f;
+            --text-muted: #515154;
+            --accent: #0071e3;
+            --accent-hover: #005bb5;
+            --border: #e5e5ea;
+            --tag-bg: #f2f2f7;
+            --badge-bg: #e8f2ff;
+            --badge-text: #0066cc;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 50px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
         }
+
         header {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 35px;
         }
-        h1 { margin: 0; color: #1c1c1e; }
-        .subtitle { font-size: 1.2rem; color: var(--accent-color); font-weight: 600; }
-        .contact-links a { color: var(--accent-color); text-decoration: none; margin-right: 15px; }
-        .section-title { text-transform: uppercase; letter-spacing: 1px; color: #6c757d; font-size: 0.9rem; margin-top: 30px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .job-title { font-weight: bold; }
-        .job-date { float: right; color: #6c757d; font-size: 0.9rem; }
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-        .tag { background: #e9ecef; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; }
+
+        h1 {
+            font-size: 2.4rem;
+            margin: 0 0 5px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .summary-text {
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        /* Skills grid */
+        .skills-group {
+            margin-bottom: 15px;
+        }
+        
+        .skills-category {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .tag.highlight {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-weight: 600;
+        }
+
+        /* Timeline & Experience */
+        .experience-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--border);
+            margin-bottom: 35px;
+        }
+
+        .experience-item.active {
+            border-left-color: var(--accent);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .job-role {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .job-company {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            background: #f0f0f2;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        .project-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 12px 0 6px 0;
+            color: #2c2c2e;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        ul.responsibilities {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        ul.responsibilities li {
+            margin-bottom: 8px;
+            font-size: 0.98rem;
+        }
+
+        .tech-stack {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            background: #fafafa;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .growth-badge {
+            display: inline-block;
+            background: #e6f4ea;
+            color: #137333;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-left: 8px;
+        }
+
+        /* Achievements */
+        .achievement-card {
+            background: #f8faff;
+            border: 1px solid #d0e2ff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.05rem;
+            color: #0043ce;
+        }
+
+        .achievement-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #393939;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px 20px; }
+            .job-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+            body { padding: 10px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Oleksandr Revebtsov</h1>
-            <div class="subtitle">iOS Engineer</div>
-            <p>Lviv, Ukraine | <span class="contact-links"><a href="https://linkedin.com">LinkedIn</a> <a href="https://github.com">GitHub</a></span></p>
-        </header>
 
-        <section>
-            <div class="section-title">Professional Summary</div>
-            <p>Results-driven iOS Engineer with over 3 years of experience building, scaling, and maintaining native iOS applications. Proficient in Swift, SwiftUI, Combine, and async/await, with a solid foundation in UIKit, MVVM-C architecture, and CoreData/SQLite persistence.</p>
-        </section>
+<div class="container">
 
-        <section>
-            <div class="section-title">Core Skills</div>
+    <!-- HEADER -->
+    <header>
+        <h1>Oleksandr Revebtsov</h1>
+        <div class="title">Software Engineer (iOS Focus)</div>
+        <div class="contact-info">
+            <span>📍 Lviv, Ukraine</span>
+            <span>📧 <a href="mailto:your.email@example.com">Email Me</a></span>
+            <span>🔗 <a href="https://linkedin.com" target="_blank">LinkedIn</a></span>
+            <span>💻 <a href="https://github.com/ordios" target="_blank">GitHub Profile</a></span>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section>
+        <h2>Professional Summary</h2>
+        <p class="summary-text">
+            Results-driven <strong>iOS Engineer</strong> with over 3.5 years of experience delivering robust native mobile applications across full release cycles — from architectural design to App Store publication. Proven expert in <strong>Swift, SwiftUI, Combine, async/await</strong>, and <strong>UIKit</strong> within clean <strong>MVVM-C</strong> architectures. Skilled in automating CI/CD pipelines (Azure Pipelines, AppCenter), integrating hardware protocols (CoreBluetooth), secure cryptography (CryptoKit), live multimedia streaming, and StoreKit payments. Track record of fast career advancement from Trainee to key Software Engineer handling high-impact enterprise applications.
+        </p>
+    </section>
+
+    <!-- KEY ACHIEVEMENTS -->
+    <section>
+        <h2>Key Career Achievements</h2>
+        
+        <div class="achievement-card">
+            <h3>🚀 End-to-End App Store Releases</h3>
+            <p>Independently managed full App Store deployment cycles, including TestFlight distribution, metadata management, code signing certificates, provisioning profiles, and guiding builds through App Store review protocols.</p>
+        </div>
+
+        <div class="achievement-card">
+            <h3>⚙️ DevOps & Pipeline Automation</h3>
+            <p>Built custom Azure Pipelines and AppCenter automation scripts integrated with Jira & Teams, reducing manual build overhead and accelerating QA feedback loops.</p>
+        </div>
+
+        <div class="achievement-card">
+            <h3>📈 Rapid Career Progression</h3>
+            <p>Demonstrated consistent skill development and leadership growth — progressing rapidly from Trainee / Associate Engineer (2021) to primary Software Engineer leading major feature modules in sports streaming & enterprise VOIP platforms.</p>
+        </div>
+    </section>
+
+    <!-- CORE SKILLS -->
+    <section>
+        <h2>Technical Expertise</h2>
+        
+        <div class="skills-group">
+            <div class="skills-category">Core Languages & UI Frameworks</div>
             <ul class="tags">
-                <li class="tag">Swift</li>
-                <li class="tag">SwiftUI</li>
-                <li class="tag">UIKit</li>
-                <li class="tag">Combine</li>
-                <li class="tag">async/await</li>
-                <li class="tag">MVVM-C</li>
-                <li class="tag">CoreData</li>
-                <li class="tag">URLSession</li>
-                <li class="tag">StoreKit</li>
-                <li class="tag">CI/CD</li>
+                <li class="tag highlight">Swift</li>
+                <li class="tag highlight">SwiftUI (Views, State/Binding, Navigation)</li>
+                <li class="tag">UIKit (AutoLayout, Storyboards, Interop)</li>
+                <li class="tag">Objective-C</li>
+                <li class="tag">Dart / Flutter</li>
             </ul>
-        </section>
+        </div>
 
-        <section>
-            <div class="section-title">Experience</div>
-            
-            <div>
-                <span class="job-date">Aug 2023 – Present</span>
-                <div class="job-title">Software Engineer — GlobalLogic</div>
-                <p><strong>Main Project: Sports Messaging Application</strong></p>
-                <ul>
-                    <li>Built scalable features using SwiftUI and UIKit within an MVVM-C architecture.</li>
-                    <li>Integrated async/await and reactive paradigms for real-time video streaming (Brightcove) and push notifications.</li>
-                    <li>Managed in-app purchases (StoreKit) and Azure CI/CD pipelines for automated App Store releases.</li>
-                </ul>
+        <div class="skills-group">
+            <div class="skills-category">Architecture & Asynchronous Programming</div>
+            <ul class="tags">
+                <li class="tag highlight">MVVM-C</li>
+                <li class="tag highlight">async / await Concurrency</li>
+                <li class="tag highlight">Combine</li>
+                <li class="tag">RxSwift / RxCocoa</li>
+                <li class="tag">SOLID & DRY Principles</li>
+                <li class="tag">SceneDelegate Modernization</li>
+                <li class="tag">DeepLinks / Universal Links</li>
+            </ul>
+        </div>
+
+        <div class="skills-group">
+            <div class="skills-category">Networking, Security & Hardware</div>
+            <ul class="tags">
+                <li class="tag highlight">URLSession & Codable</li>
+                <li class="tag">REST APIs & JSON Parsing</li>
+                <li class="tag">OAuth 2.0 & WebView Interop</li>
+                <li class="tag">CoreBluetooth</li>
+                <li class="tag">CryptoKit</li>
+                <li class="tag">StoreKit (In-App Purchases)</li>
+                <li class="tag">CoreData / SQLite</li>
+            </ul>
+        </div>
+
+        <div class="skills-group">
+            <div class="skills-category">DevOps, Testing & Analytics</div>
+            <ul class="tags">
+                <li class="tag">Microsoft Azure Pipelines</li>
+                <li class="tag">AppCenter CI/CD</li>
+                <li class="tag">App Store Connect & TestFlight</li>
+                <li class="tag">Unit & UI Testing (XCTest)</li>
+                <li class="tag">TestRail</li>
+                <li class="tag">Brightcove SDK (Video Streaming)</li>
+                <li class="tag">Firebase Analytics & Clarity</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCE Timeline -->
+    <section>
+        <h2>Work Experience</h2>
+
+        <!-- GlobalLogic - Middle Engineer -->
+        <div class="experience-item active">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Software Engineer</span>
+                    <span class="job-company">@ GlobalLogic, Lviv</span>
+                    <span class="growth-badge">Promoted</span>
+                </div>
+                <span class="job-date">Aug 2023 – Present (~3 yrs)</span>
             </div>
 
-            <div>
-                <span class="job-date">Jul 2022 – Aug 2023</span>
-                <div class="job-title">Software Engineer — GlobalLogic</div>
-                <p><strong>Project: Video Conferencing Software</strong></p>
-                <ul>
-                    <li>Developed VoIP features and refactored legacy Objective-C codebases into Swift.</li>
-                    <li>Maintained high quality through Unit/UI tests and performance tuning with Xcode Instruments.</li>
-                </ul>
-            </div>
-        </section>
+            <div class="project-title">Main Project: Sports Messaging & Multimedia Application</div>
+            <div class="project-desc">A modular sports application for iPhone & iPad enabling live multimedia streaming, interactive browser webviews, and exclusive content subscriptions.</div>
 
-        <section>
-            <div class="section-title">Education</div>
-            <p><strong>Odesa I.I. Mechnikov National University</strong><br>Applied Mathematics (2002 – 2008)</p>
-        </section>
-    </div>
+            <ul class="responsibilities">
+                <li>Designed and built modular UI components using <strong>SwiftUI</strong> and <strong>UIKit</strong> within an <strong>MVVM-C</strong> architectural pattern.</li>
+                <li>Implemented live sports streaming capabilities using the <strong>Brightcove SDK</strong> and integrated dynamic widgets, carousels, and UI gradients.</li>
+                <li>Leveraged reactive programming and <strong>async/await</strong> to handle complex asynchronous state, model binding, and push notifications.</li>
+                <li>Migrated application architecture to <strong>SceneDelegate</strong> and integrated <strong>Deep Links / Universal Links</strong> for modern navigation routing.</li>
+                <li>Integrated <strong>StoreKit</strong> for payment processing and in-app subscriptions, plus integrated Firebase and Microsoft Clarity analytics.</li>
+                <li>Created custom automated build/deploy scripts for <strong>Microsoft Azure Pipelines</strong> and AppCenter integrated with Jira & Teams.</li>
+                <li>Managed provisioning profiles, certificates, TestFlight builds, and submitted releases through the App Store review process.</li>
+            </ul>
+
+            <div class="project-title" style="margin-top:15px;">Additional Support Project: Hardware Connectivity App</div>
+            <ul class="responsibilities">
+                <li>Maintained ongoing support and feature updates for an iOS app focused on device communication via <strong>CoreBluetooth</strong> and data security via <strong>CryptoKit</strong>.</li>
+            </ul>
+
+            <div class="tech-stack">
+                <strong>Tech Stack:</strong> Swift, SwiftUI, RxSwift/RxCocoa, Brightcove SDK, CoreBluetooth, CryptoKit, StoreKit, Azure Pipelines, AppCenter, Firebase.
+            </div>
+        </div>
+
+        <!-- GlobalLogic - Engineer -->
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Software Engineer</span>
+                    <span class="job-company">@ GlobalLogic, Lviv</span>
+                </div>
+                <span class="job-date">Oct 2022 – Aug 2023 (11 mos)</span>
+            </div>
+
+            <div class="project-title">Project: Enterprise Video Conferencing Solution</div>
+            <div class="project-desc">Cross-industry team collaboration solution delivering secure, high-reliability face-to-face video meetings on iPhone and iPad.</div>
+
+            <ul class="responsibilities">
+                <li>Supported, extended, and optimized core features for an existing enterprise VOIP application.</li>
+                <li>Refactored legacy Objective-C components into modern Swift codebases.</li>
+                <li>Handled bug triage, code reviews, and conducted UI/Unit testing to ensure enterprise-grade stability.</li>
+                <li>Executed performance diagnostics and memory leak checks using Xcode debugging tools (Instruments, Memory Graph).</li>
+            </ul>
+
+            <div class="tech-stack">
+                <strong>Tech Stack:</strong> Swift, Objective-C, Python, VOIP, XCTest, Xcode Instruments.
+            </div>
+        </div>
+
+        <!-- GlobalLogic - Associate -->
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Associate Software Engineer</span>
+                    <span class="job-company">@ GlobalLogic, Lviv</span>
+                    <span class="growth-badge">Promoted</span>
+                </div>
+                <span class="job-date">Oct 2021 – Sep 2022 (1 yr)</span>
+            </div>
+
+            <div class="project-title">Project: OneTalk API Gateway & VOIP Application</div>
+            <ul class="responsibilities">
+                <li>Developed complex UI components using Storyboards, AutoLayout, and StackViews integrated with MVVM architecture.</li>
+                <li>Designed networking layers using <strong>URLSession</strong>, delegation patterns, and JSON parsing via <strong>Codable</strong> protocols.</li>
+                <li>Wrote unit and UI tests to expand code coverage and automate regression checks.</li>
+            </ul>
+
+            <div class="tech-stack">
+                <strong>Tech Stack:</strong> Swift, UIKit, AutoLayout, URLSession, JSON Parsing (Codable), MVVM.
+            </div>
+        </div>
+
+        <!-- GlobalLogic - Trainee -->
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Trainee Software Engineer</span>
+                    <span class="job-company">@ GlobalLogic / EPAM</span>
+                </div>
+                <span class="job-date">Jan 2021 – Sep 2021</span>
+            </div>
+            <ul class="responsibilities">
+                <li>Completed intensive iOS development courses, mastering Swift fundamentals, memory management, and clean coding standards.</li>
+                <li>Identified bottlenecks, fixed bugs, and collaborated with senior engineers on feature delivery.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+        <h2>Education</h2>
+        <p>
+            <strong>Odessa I.I. Mechnikov National University</strong><br>
+            Master's / Specialist Degree in Applied Mathematics (2002 – 2008)<br>
+            <span style="color: var(--text-muted); font-size: 0.9rem;">Specialization in Numerical Methods & Complex Mathematical Systems.</span>
+        </p>
+    </section>
+
+</div>
+
 </body>
 </html>
